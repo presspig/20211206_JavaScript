@@ -21,10 +21,7 @@ https://www.w3schools.com/js/default.asp
 2. JavaScript 지원 현황  
 http://kangax.github.io/compat-table/es6/
 
-3. 브라우저 점유율 
+2. 브라우저 점유율  
 https://gs.statcounter.com/
 <br />
 <br />
-
-
-
