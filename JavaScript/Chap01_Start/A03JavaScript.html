@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A03 JavaScript</title>
+    <!-- src로 지정된 script 태그 내부에 JavaScript 명령을 추가해도 무시됨 -->
+    <script type="text/javascript" src="./A03Variable.js">
+        // console.log(object)          // 무시됨
+    </script>
+
+    
+</head>
+<body>
+    <h1>A03 JavaScript</h1>
+
+    <div>This is HTML File</div>
+
+    <div id="result"></div>
+
+
+    <!-- 위의 script가 읽어져야 변수를 참조할 수 있으므로 밑에 기술 -->
+    <script type="text/javascript">
+        var div = document.querySelector('body #result')
+        console.log(div);
+        div.innerHTML = nickname + " / " + age;
+    </script>
+</body>
+</html>
