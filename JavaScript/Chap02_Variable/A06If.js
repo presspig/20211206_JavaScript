@@ -73,7 +73,48 @@ console.log(h);
 
 
 // switch
+// 다중 if문에서 조건이 === (같다) 인 경우만 switch로 변경 가능
 var year = 2000;
 var month = 2;
 var day = 0;
 
+// if
+if(month === 1 || month === 3 || month === 5) {
+    day = 31;
+} else if(month === 2) {
+    day = 30;
+} else if(month === 3) {
+    day = 31;
+} else {
+    day = '모르겠음';
+}
+console.log('if end', day);
+console.log('')
+
+// case에 break 문을 만날때 까지 계속 하단의 조건이 실행된다
+month = 1;
+switch(month) {
+    case 1:             // month === 1
+    case 3:
+    case 5:
+        day = 31;
+        break;          // 이 문을 만나면 전체 switch 문을 벗어난다.
+    case 2:
+        day = 28;
+        break;
+    // case 3:
+    //     day = 31;
+    //     break;
+    case 4:
+    case 6:
+    case 9:
+        day = 30;
+        break;
+    // case 5:
+    //     day = 31;
+    //     break;
+    default:
+        day = '모르겠음';
+        break;
+}
+console.log('switch end', day);
