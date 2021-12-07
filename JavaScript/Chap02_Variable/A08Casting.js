@@ -54,6 +54,7 @@ function console() {
 if(console) {
     console.log('지원함.')
 }
+
 if( addEventListener ) { 
     console.log('NetScape');
 } else {
@@ -89,4 +90,9 @@ console.log("num: " + num + ', typeof(변수명): ' + typeof(num));
 
 // NaN
 num = parseFloat(str);
+console.log("num: " + num + ', typeof(변수명): ' + typeof(num));
+
+
+str = '123.456';
+var num = Number(str);      // 123.456
 console.log("num: " + num + ', typeof(변수명): ' + typeof(num));

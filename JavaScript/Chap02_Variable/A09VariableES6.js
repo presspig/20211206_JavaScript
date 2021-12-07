@@ -6,13 +6,14 @@ var nickname = 'NolBu';
 var nickname = 'HungBu';
 var A = 'ABC';
 console.log(window);        // Global 객체
+
 /*
 alert = 100;
 alert('Hello World')
 */
 
 // 함수 이외의 { } 스코프(참조 범위)를 갖지 않는다.
-if(true){
+if(true) {
     var nickname = 'BangJa';
     console.log('{} 내부에서의 nickname: ' + nickname);
 }
