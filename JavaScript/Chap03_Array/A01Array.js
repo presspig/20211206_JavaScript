@@ -54,7 +54,51 @@ var arr = [10, 11, 100, 101, 1000];
 // console.log(arr.length);
 // arr[arr.length] = 100;           // 이 방식이 push보다 빠르다.
 
-var x = arr.push(1001);             // 배열 맨 마지막에 값 추가
-var y = arr.unshift(1);             // 배열 맨 앞에 값 추가
+// . 앞의 변수가 배열이면 "배열명.배열이 가지고 있는 내장 명령()" 형태로 사용
+var x = arr.push(1001);             // 배열 맨 마지막에 값 추가, x는 추가후 배열의 개수
+var y = arr.unshift(1);             // 배열 맨 앞에 값 추가, y는 추가후 배열의 개수
 
-console.log(arr, x, y)
+console.log(arr, x, y);
+
+// 삭제
+x = arr.pop();              // 배열의 맨 뒤의 값을 삭제. x는 삭제된 값.
+y = arr.shift();            // 배열의 맨 앞의 값을 삭제. y는 삭제된 값.
+console.log(arr, x, y);
+
+
+// 배열 중간의 값을 삭제/추가
+// ary.splice(시작위치, 몇개 변경할 것인가, 변경 또는 추가될 값)
+var arr = [10, 11, 100, 101, 1000];
+
+x = arr.splice(1, 0, 20);       // 1번째 위치에 20이 추가
+console.log(arr, x);
+
+// 1번째 위치에 요소 1개를 200으로 치환
+arr.splice(1, 1, 200);
+console.log(arr);
+
+// 1번째 위치에 요소 1개를 20, 21으로 치환 => 결국 2개의 요소가 추가된다.
+arr.splice(1, 1, 20, 21);
+console.log(arr);
+
+// 삭제는 마지막 요소 값만 없이 지정
+arr.splice(1, 2);
+console.log(arr);
+console.log('');
+
+
+// 배열은 그대로 두고 여러개의 값을 꺼내오는 경우. 꺼내온 값도 배열이다.
+// arr.slice(시작인텍스, 종료인텍스);   값은 종료인텍스 -1 까지
+var arr = [10, 11, 100, 101, 1000];
+x = arr.slice(3);               // 시작부터 마지막까지
+console.log(arr, x);
+
+x = arr.slice(1, 4);            // 4-1까지
+console.log(arr, x);
+
+// -는 시작 인텍스가 1
+x = arr.slice(-4);
+console.log(arr, x);
+
+x = arr.slice(-4, -1);
+console.log(arr, x);
