@@ -49,4 +49,52 @@ console.log(hangdan);
 console.log(hangdan.name + '님의 총점은 ' + hangdan.total + '이고 평균은 ' + hangdan.avg + '입니다');
 console.log(`${hangdan.name}님의 총점은 ${hangdan.total}이고 평균은 ${hangdan.avg}입니다`);
 
+var ary = [ function(){}, new Date(), ];
+ary.push(10);
 
+var obj = { 
+    name: 'BangJa',
+    'kor-jumsu': 100,
+}
+console.log(obj.name);
+console.log(obj['kor-jumsu'] );         // .을 생략하고 key를 ['문자열'] 형태로 참조한다.
+console.log('');
+
+var objKor = 'kor-jumsu'
+console.log(obj.objKor);                // obj.objKor라는 키가 있으면 출력 / undefined
+console.log( obj[objKor] );             // 100
+
+var nickname = 'name';
+console.log(obj.nickname);              // undefined
+console.log(obj[nickname]);             // BangJa
+
+
+// 130 page
+var hungbu = {
+    'name': 'Bangja',       // 내부적으로는 문자열 형태로 참조된다.
+    kor: 80,
+    eng: 90,
+    total: 0,
+    avg: 0,
+    onTotal: function() {               // Object {} 내부에 선언된 함수를 메소드(메서드)라고 한다
+        // 자신의 속한 객체의 {} 안의 프로퍼티, 메서드는 this 라는 키워드로 참조한다.
+        this.total = this.kor + this.eng;
+    },
+    onAvg: function() {
+        this.avg = this.total / 2;
+    }
+};
+console.log(hungbu['name']);
+console.log(hungbu.total);
+
+hungbu.onTotal();
+hungbu.onAvg();
+
+console.log(hungbu)
+
+
+var today = new Date();
+console.log(today.toLocaleString());
+
+// onTotal의 내용보기
+console.log(hungbu.onTotal)
