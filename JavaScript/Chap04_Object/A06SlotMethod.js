@@ -37,4 +37,5 @@ obj.fullName;
 // 프로퍼티의 세부 사항을 조회
 console.log( Object.getOwnPropertyDescriptor(obj, 'firstName') );
 
-
+// 전체 참조
+console.log( Object.getOwnPropertyDescriptors(obj) );
