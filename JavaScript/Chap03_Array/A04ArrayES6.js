@@ -64,6 +64,11 @@ for(var value of e) {
 }
 
 
+// find, findIndex
+
+
+
+
 var objArray = [
     {id: 1, name: 'NolBu', age: 35}, 
     {id: 2, name: 'BangJa', age: 18}, 
