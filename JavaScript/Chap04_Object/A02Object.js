@@ -50,9 +50,13 @@ console.log(obj.length);                    // undefined
 for(var index in ary) {
     console.log(index, ary[index])
 }
-
-for(var index in one) {
-    // console.log(typeof(index));          // 문자열로 호출된다.
+// for ~ of                                 // Iterator 객체를 상속받은 객체만 사용 가능
+for(var index in one) {                     // 이뉴머레이션 객체를 상속받은 객체만 사용 가능
+    // console.log(typeof(index));          // string 문자열로 호출된다. 'name', 'age', 'dispaly'
     // one.'name', one.'age'..              // 문자열은 객체명['문자열'] 형태로 사용해야 한다.
     console.log(index, one[index])
 }
+
+
+var today = new Date();
+console.log(today.toLocaleString );

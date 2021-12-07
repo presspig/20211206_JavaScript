@@ -84,6 +84,7 @@ var hungbu = {
         this.avg = this.total / 2;
     }
 };
+// console.log(hungu.'name');           // 이런 문법은 없음
 console.log(hungbu['name']);
 console.log(hungbu.total);
 
@@ -97,4 +98,5 @@ var today = new Date();
 console.log(today.toLocaleString());
 
 // onTotal의 내용보기
-console.log(hungbu.onTotal)
+// 자바스크립트에서는 함수도 값(문자열)
+console.log(hungbu.onTotal);            // ()가 없음. () => 함수 실행 명령
