@@ -79,3 +79,9 @@ JumsuOne.prototype.display = function() {
 
 console.dir(JumsuOne);
 
+var one = new JumsuOne('홍길동', 100, 70);
+console.log(one)
+one.display();
+
+console.log(one.__proto__);
+console.log(one.__proto__ === JumsuOne.prototype);
