@@ -45,7 +45,8 @@ var objC = {
     info: {
         tel: '010-1234-5678', 
         address: 'Seoul'
-    }
+    },
+    ary: [10, 11]
 };
 
 // shallow Clone
