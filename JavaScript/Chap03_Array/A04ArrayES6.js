@@ -75,7 +75,7 @@ var objArray = [
 function findObjArray(index) {
     return objArray[index];
 }
-console.log( findObjArray(3) )
+console.log( findObjArray(3) );         // index로 매칭되는 요소가 없음.
 
 
 // find => 객체 자체가 리턴된다.
@@ -84,12 +84,13 @@ console.log( findObjArray(3) )
 var findItem = objArray.find( function(item, index){
     return item.id === 3;
 });
-console.log(findItem);
+console.log(findItem);          // {id: 3, name: 'HungBu', age: 25}
 console.log('')
 
 // 매칭되는 값의 index가 리턴된다.
 var index = objArray.findIndex( function(item, index){
-    return item.id === 3;
+    return item.id === 3;       // 2
 });
 console.log(index);
+console.log(objArray[index]);   // {id: 3, name: 'HungBu', age: 25}
 
