@@ -7,7 +7,18 @@
 	<link rel="shortcut icon" href="../img/favicon.ico">
 	<style></style>
 	<script>
-		
+		// window.onload = function(){};
+
+		function clickEvent(evt) {
+			alert('Hello World');
+		}
+
+		function loadEvent() {
+			var btn = document.getElementById('btn');
+			btn.addEventListener('click', clickEvent)
+		}
+
+		window.addEventListener("load", loadEvent);
 	</script>
 </head>
 
