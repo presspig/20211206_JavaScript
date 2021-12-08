@@ -13,3 +13,4 @@ Person.prototype.display = function() {
 var nolbu = new Person('NolBu', 30);
 nolbu.display();
 
+// A02ProtoType에서 실습

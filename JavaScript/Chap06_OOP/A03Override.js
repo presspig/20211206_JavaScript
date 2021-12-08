@@ -12,3 +12,24 @@ Person.prototype.display = function() {
 
 var nolbu = new Person('NolBu', 30);
 nolbu.display();
+
+nolbu.display = function(){
+    console.log(`Hi~ ${this.name}`)
+}
+nolbu.display();
+
+delete nolbu.display;
+nolbu.display();
+
+
+// 기존 객체에 prototype 추가
+Object.prototype.toText = function() {
+    console.log('Hello World');
+}
+
+var two = {name: 'Two'};
+console.log(two);
+
+var ary = [];
+ary.toText();
+
