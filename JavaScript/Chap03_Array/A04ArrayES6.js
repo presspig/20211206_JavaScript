@@ -66,12 +66,30 @@ for(var value of e) {
 
 // find, findIndex
 
-
-
-
 var objArray = [
     {id: 1, name: 'NolBu', age: 35}, 
     {id: 2, name: 'BangJa', age: 18}, 
     {id: 3, name: 'HungBu', age: 25}
 ];
+
+function findObjArray(index) {
+    return objArray[index];
+}
+console.log( findObjArray(3) )
+
+
+// find => 객체 자체가 리턴된다.
+
+// 조건에 매칭되는 요소가 전달
+var findItem = objArray.find( function(item, index){
+    return item.id === 3;
+});
+console.log(findItem);
+console.log('')
+
+// 매칭되는 값의 index가 리턴된다.
+var index = objArray.findIndex( function(item, index){
+    return item.id === 3;
+});
+console.log(index);
 

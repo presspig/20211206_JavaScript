@@ -67,8 +67,8 @@ foo();
 
 
 function outer3() {
-
+    // outer3 => window
     function inner() {
-        
+        // 평가될때 상위 스코프는 inner => outer3 => window
     }
-}
+};
