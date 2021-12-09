@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A01 Location / History</title>
+</head>
+<body>
+    <div class="card-body">
+        <h1>Location</h1>
+
+        <div>
+            href: <span id="hash">dddds</span><br>
+            host: <span id="host"></span><br>
+            hostname: <span id="hostname"></span><br>
+            href: <span id="href"></span><br>
+            pahtname: <span id="pahtname"></span><br>
+            search: <span id="search"></span><br>
+            port: <span id="port"></span><br>
+            protocol: <span id="protocol"></span><br>
+        </div>
+        <br>
+
+        <div>
+            <button onclick="google()">href</button>
+            <button onclick="daum()">assign</button>
+            <button onclick="naver()">Replace</button>
+            <button onclick="location.reload()">Reload</button>
+            <button onclick="location.search = 'name=Nolbu&age=20#TOP' ">search</button>
+            <br>
+
+            <button onclick="history.back()">back</button>
+            <button onclick="history.forward()">forward</button>
+            <button onclick="history.go(-2)">go(-2)</button>
+            <button onclick="history.go(2)">go(2)</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var hash = window.location.hash;
+        var host = location.host;
+        var hostname = location.hostname;
+        var href = location.href;
+        var pahtname =location.pahtname;
+        var search = location.search;
+        var port =location.port;
+        var protocol = location.protocol;
+
+       
+        console.log( document.getElementById('hash') );
+
+        // innerHTML은 HTML Node가 가지고 있는 내장 명령=> <tag>Text Node</tag>
+        // 이 tag의 textNode를 지정한 값으로 변경.
+        document.getElementById('hash').innerHTML = hash;
+        document.getElementById('host').innerText = host;
+        document.getElementById('hostname').textContent = hostname;
+
+        document.getElementById('href').innerHTML = href;
+        document.getElementById('pahtname').innerHTML = pahtname;
+        document.getElementById('search').innerHTML = search;
+        document.getElementById('port').innerHTML = port;
+        document.getElementById('protocol').innerHTML = protocol;
+
+        console.log(location);
+
+        function google() {
+            location = 'http://www.google.com';
+        }
+        
+        function daum() {
+            location.assign('http://daum.net');     // history 정보 남김 (뒤로가기 가능)
+        }
+        function naver() {
+            location.replace('http://naver.com');   // history 정보 안 남김 (뒤로가기 안됨)
+        }
+        
+    </script>
+</body>
+</html>

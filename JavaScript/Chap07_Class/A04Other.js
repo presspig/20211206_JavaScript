@@ -43,7 +43,7 @@ console.log(lotto)
 
 console.log('---------------- [566] Date  -----------------');
 var today = new Date();
-console.log(today)
+console.log(today);                         // 나라별 표준시
 console.log(today.toLocaleDateString());    // 날짜만
 console.log(today.toLocaleTimeString());    // 시간
 console.log(today.toLocaleString());        // 날짜 시간
@@ -57,7 +57,9 @@ console.log(today.getHours(), today.getMinutes(), today.getSeconds() );
 console.log(today.getDay());            // 0이 일요일
 
 var yoil = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
-console.log( yoil[today.getDay()] );
+var day = today.getDay();
+console.log( yoil[day] )
+// console.log( yoil[today.getDay()] );
 console.log('')
 
 
