@@ -25,7 +25,15 @@
         };
 
         // 표준 이벤트 방식
-        
+        if( addEventListener ) {
+            two.addEventListener('click', function(evt){
+                console.log('표준 이벤트 호출')
+            })
+        } else {
+            two.attachEvent('click', function(evt){
+                console.log('익스플러어 전용 이벤트 호출 방식')
+            })
+        }
     </script>
 </body>
 </html>

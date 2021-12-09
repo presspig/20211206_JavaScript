@@ -7,7 +7,37 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A06 Callback</title>
     <script type="text/javascript">
-        
+        // window.onload = function{ }          // 이전 방식
+
+        /*
+        window.addEventListener("load", function(){
+            var one = document.getElementById("btnOne");
+            // var one = document.getElementById("btnTwo");
+
+            one.addEventListener("click", function(evt){
+                console.log(evt.target);
+            });
+
+            document.getElementById("btnTwo").addEventListener('click', function(evt){
+                console.log(evt.target);
+            });
+        })
+        */
+
+        var clickEvent = function(evt) {
+            console.log(evt.target);
+        };
+
+        function onLoadEvent(evt) {         // Event handler라 한다.
+            // console.log(evt)
+            var one = document.getElementById("btnOne");
+
+            one.addEventListener("click", clickEvent);
+            document.getElementById("btnTwo").addEventListener('click', clickEvent);
+        };
+
+        // 콜백함수를 함수로 호출하면서 첫번째 매개변수로 event 객체를 묵시적으로 전달해 준다
+        window.addEventListener("load", onLoadEvent);
     </script>
 </head>
 <body>

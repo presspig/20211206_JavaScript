@@ -35,6 +35,7 @@
         // load 이벤트는 문서의 마지막까지 정상적으로 읽어 왔으면 내부적으로 발행되는 이벤트. 지정한 콜백함수가 실행된다 
         window.addEventListener('load', function(){
             var btns = document.getElementsByTagName('button');
+            console.log(btns);
 
             // 사용자의 action 중 마우스 클릭이라는 동작이 이루어지면 발생하는 이벤트. 발생하면 지정한 콜백이 실행.
             btns[1].addEventListener('click', function(){

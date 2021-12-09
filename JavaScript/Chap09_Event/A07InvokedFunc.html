@@ -7,7 +7,48 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A07 Immediately Invoked Function</title>
     <script type="text/javascript">
+        /*
+        var myLib = (function(){
+            var alert = function(evt) {
+                console.log(evt.target);
+            };
+
+            function onLoadEvent(evt) { 
+                var one = document.getElementById("btnOne");
+
+                one.addEventListener("click", alert);
+                document.getElementById("btnTwo").addEventListener('click', alert);
+            };
+
+            // window.addEventListener("load", $.onLoadEvent);
+            return onLoadEvent
+            
+        })();
+
+        window.addEventListener("load", myLib);
+        // window.alert('Hello World');
+        */
         
+        var $ = (function(){
+            var alert = function(evt) {
+                console.log(evt.target);
+            };
+
+            function onLoadEvent(evt) { 
+                var one = document.getElementById("btnOne");
+
+                one.addEventListener("click", alert);
+                document.getElementById("btnTwo").addEventListener('click', alert);
+            };
+
+            // window.addEventListener("load", $.onLoadEvent);
+            return {
+                onLoadEvent: onLoadEvent,
+                
+            }
+        })();
+
+        window.addEventListener("load", myLib);
     </script>
 </head>
 <body>

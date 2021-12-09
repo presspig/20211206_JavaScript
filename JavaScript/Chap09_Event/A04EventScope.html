@@ -11,16 +11,20 @@
         window.onload = function(){
             console.dir(window.document);
             console.dir(window);
+
+            alert('Hello World');               // 팝업이 활성화가 안되고 내가 정의한 alert 함수로 덮어쓰기가 된다.
         };
         
-        
+        function alert() {
+            console.log('My Alert')
+        }
     </script>
 </head>
 <body>
     <div class="card-body">
         <h2>4. Scope의 오염 문제</h1>
 
-        <button>CLICK</button>
+        <button onclick="alert()">CLICK</button>
     </div>
 </body>
 </html>
