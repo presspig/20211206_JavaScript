@@ -122,4 +122,62 @@ onMulti(10, 20, function(data){
     
 onMulti(100, 200, function(data){
     console.log(data / 2);
-})
+});
+
+
+var obj = {};
+console.log(obj);           // => Object
+/*
+{
+    [[Prototype]] = {           => __proto__
+        Object 생성자 함수가 정의한 prototype 속성이 여기에 객체 형태로 정의되어 있다
+    }
+}
+*/
+
+var abc = {
+    name: 'NolBu',
+    show: function() {
+        console.log(this.name);
+    }
+}
+
+obj.__proto__ = abc;
+/*
+{
+    [[Prototype]] = {           => __proto__
+        name: 'NolBu',
+        show: function() {
+            console.log(this.name);
+        }
+    }
+}
+*/
+console.log(obj.name);
+console.log(obj.show())
+
+
+
+function Jumsu(name) {
+    this.name = name;
+}
+
+Jumsu.prototype.getName = function() {
+    return this.name;
+}
+
+var parent = {
+    name: 'NolBu',
+    show: function() {
+        console.log(this.name);
+    }
+}
+
+Jumsu.prototype = parent;
+
+var x = new Jumsu('ABC');
+
+console.dir(Jumsu)
+console.log(x)
+console.log(x.name);
+x.show();

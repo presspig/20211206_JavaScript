@@ -1,5 +1,4 @@
 
-
 var aryLike = {
     0: 'NulBu',
     1: 'HungBu',
@@ -7,16 +6,16 @@ var aryLike = {
     length: 3,
 
     push: function(item) {
-        
+        return Array.prototype.push.call(this, item);
     },
     pop: function() {
-        
+        return Array.prototype.pop.call(this);
     },
     shift: function() {
-        
+        return Array.prototype.shift.call(this);
     },
     unshift: function(item) {
-        
+        return Array.prototype.unshift.call(this, item);
     }
 }
 

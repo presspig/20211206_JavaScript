@@ -61,6 +61,12 @@ function JumsuOne(name, kor, eng) {
     this.name = name;           // { name: '놀부' }
     this.kor = kor;             // { name: '놀부', kor: 100 }
     this.eng = eng;             // { name: '놀부', kor: 100, eng: 80 }
+    // prototype = {생성자, 밑의 prototype의 함수를 정의 완료}
+
+    // 자신의 메서드
+    this.getName = function() {
+        return this.name;
+    }
 }
 
 // DTO. 부모가 이 객체를 가지고 있다. (object)
@@ -77,9 +83,24 @@ JumsuOne.prototype.display = function() {
     console.log(`${this.name}님의 총점은 ${this.onTotal()}이고 평균은 ${this.onAvg()}입니다.`);
 }
 
-console.dir(JumsuOne);
+// utils 적인 기능을 하는 메서드는 static으로 정의한다.
+// 생성자 함수로 호출할 수 있는 메서드 또는 프로퍼티
+JumsuOne.getProgramName = function() {
+    return '국어, 영어 시험 평가용 프로그램';
+};
+JumsuOne.progName = '시험 평가용...'
 
-var one = new JumsuOne('홍길동', 100, 70);
+console.dir(JumsuOne);
+console.log(JumsuOne.getProgramName());
+console.log(JumsuOne.progName);
+
+
+var one = new JumsuOne('홍길동', 100, 70);      // [[Prototype]] => 생성자의 prototype
+
+// Object의 __proto__의 메서드 호출
+console.log(one.hasOwnProperty('name'))
+console.log(Object.getOwnPropertyDescriptor(one, 'name'));
+
 console.log(one)
 one.display();
 

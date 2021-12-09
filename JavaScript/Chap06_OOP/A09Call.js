@@ -15,7 +15,9 @@ var myObj = {
             console.log('call, apply this=> ', this.count, this);
         }
 
-        inner(2)
+        // this를 동적으로 변경
+        inner.call(myObj, 2);           // inner 함수 내부에 thisfmf myObj후에 2를 전달하고 실행.
+        inner.apply(this, [2])
     }
 }
 myObj.visit();
@@ -38,7 +40,13 @@ var yourObj = {
             console.log('bind this=> ', this.count, this);
         }
 
-        inner(2);
+        // this를 변경해서 새로운 메서드를 리턴해 준다.         React의 Class Component에서 사용.
+        var one = inner.bind(yourObj);
+        // console.log(one)
+        var two = inner.bind(this);
+
+        one(2);
+        two(3);
     }
 }
 yourObj.visit();
