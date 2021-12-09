@@ -24,7 +24,8 @@
         <br>
 
         <div>
-            <button>Open</button>
+            <button onclick="openWin()">Open</button>
+            <button onclick="closeWin()">Close</button>
         </div>
     </div>
 
@@ -47,6 +48,14 @@
         document.getElementById('title').innerHTML = title;
         document.getElementById('url').innerHTML = URL;
         document.getElementById('cookie').innerHTML = cookie;
+
+        var win;
+        function openWin() {
+            win = document.open('A05Cookie.html', 'a05', 'width=200,height=400');
+        }
+        function closeWin(){
+            win.close();
+        }
     </script>
 </body>
 </html>

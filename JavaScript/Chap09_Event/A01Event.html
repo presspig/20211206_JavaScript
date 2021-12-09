@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>A01 Event</title>
+    <script type="text/javascript">
+        function clickEvent(){
+            console.log('Button Clicked');
+        };
+
+        /*
+        var btns = document.getElementsByTagName('button');        // tag 이름으로 찾아 찾은 모든 요소를 배열로 돌려준다.
+        console.log(btns);
+        btns[1].onclick = function() {
+            console.log('두번째 버튼 클릭')
+        }
+        */
+
+        // console.log(window);
+        // 이 문서를 에러 없이 끝까지 다 읽어서 DOM이 완성되면 발생되는 이벤트
+        /*
+        window.onload = function(){
+            var btns = document.getElementsByTagName('button');        // tag 이름으로 찾아 찾은 모든 요소를 배열로 돌려준다.
+            console.log(btns);
+            
+            btns[1].onclick = function() {
+                console.log('두번째 버튼 클릭')
+            }
+        }
+        */
+       
+        // load 이벤트는 문서의 마지막까지 정상적으로 읽어 왔으면 내부적으로 발행되는 이벤트. 지정한 콜백함수가 실행된다 
+        window.addEventListener('load', function(){
+            var btns = document.getElementsByTagName('button');
+
+            // 사용자의 action 중 마우스 클릭이라는 동작이 이루어지면 발생하는 이벤트. 발생하면 지정한 콜백이 실행.
+            btns[1].addEventListener('click', function(){
+                console.log('두번째 버튼 클릭');
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div class="card-body">
+        <h2>1. Event</h2>
+
+        <div>
+            <button onclick="clickEvent()">CLICK</button>
+            <button>CLICK</button>
+            <button onclick="console.log('직접 기술도 가능')">CLICK</button>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -27,7 +27,55 @@
         str = encodeURI('ab123%^&!@#$*()_-+=');        
         console.log(str)
 
-        
+        /*
+        var nickname = 'name=Nolbu; max-age=60; path=/;';
+        document.cookie = nickname;
+
+        var ageCookie = 'age=0;'
+        document.cookie = ageCookie;
+
+        var getCookie = document.cookie;
+        document.getElementById('name').innerHTML = getCookie;
+        */
+
+        function setCookie(name, value, expires, path, doman, secure) {
+            var ck = '';
+            ck += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; ';
+            if(expires) ck += 'max-age=' + expires + '; ';
+            if(path) ck += 'path=' + path + '; ';
+            if(doman) ck += 'doman=' + doman + '; ';
+            if(secure) ck += 'secure=' + secure + '; ';         // https에서만 사용할 것인가
+            // console.log(ck);
+            document.cookie = ck;
+        };
+
+        function getCookie(name) {
+            var ck = document.cookie.split('; ');       // name=Nolbu; age=0
+            console.log(ck)
+
+            for(var i = 0; i < ck.length; i++) {
+                // [name=Nolbu, age=0]
+                var value = ck[i].split('=');           // [name, NolBu]
+                var decodeName = decodeURIComponent(value[0]);
+                if(decodeName === name) {
+                    var result = decodeURIComponent(value[1]);
+                    return result;
+                }
+            }
+            return null;
+        }
+
+        // setCookie('name', '놀부', 20, '/', 'location:5500', false);          // 20초
+        // setCookie('나이', '30', 20);
+        // setCookie('주소', '서울', 20);
+
+        var name = getCookie('name');
+        var age = getCookie('나이');
+        var address = getCookie('address')
+
+        document.getElementById('name').innerHTML = name;
+        document.getElementById('age').innerHTML = age;
+
     </script>
 </body>
 </html>
