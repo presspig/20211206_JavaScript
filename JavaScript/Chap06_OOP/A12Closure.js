@@ -46,7 +46,7 @@ var incThree = function() {
 
 let inner = incThree();
 // 결론적으로는 incThree()를 호출하면 이렇게 리턴되서 정의된 것과 동일. 받은 값이 함수 리터럴(문자)다.
-// let inner = function() { return ++cnt };
+// let inner = function() { return ++cnt };         // 실질적으로는 생성된 inner 함수의 주소값..
 
 // 리턴 받은 함수 리터럴 값을 ()를 이용해 함수로써 실행한다.
 // 이 함수는 내부 변수 cnt를 참조하여 값을 1 증가한다.
