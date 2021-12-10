@@ -7,11 +7,21 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A11 preventDefault</title>
     <script type="text/javascript">
-        (function(){
-            
-        })();
 
-        window.addEventListener('load', myLib);
+        window.addEventListener('load', function(){
+            // 함수 내부라 window를 오염시키지 않는다.
+            document.querySelectorAll('a')[0].addEventListener('click', function(evt){
+                evt.preventDefault();       // Node가 가지고 있는 JavaScript기능을 비 활성화.
+                alert('Google');
+            });
+
+            document.querySelectorAll('a')[1].addEventListener('click', function(evt){
+                var check = window.confirm('이동하시겠습니까?');
+                if(!check) {
+                    evt.preventDefault();
+                };
+            })
+        });
     </script>
 </head>
 <body>
