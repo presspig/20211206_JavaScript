@@ -7,8 +7,55 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A03 Attribute</title>
     <script type="text/javascript">
+        
         var onLoadEvent = function() {
-            
+            var google = document.querySelector('a');
+            var href = google.getAttribute('href');                 // 속성 참조
+            console.log(href);
+
+            if( !google.hasAttribute('title') ) {                   // 속성이 존재하는지 여부
+                google.setAttribute('title', '구글로 이동합니다.');     // 속성 추가
+            }
+
+            // 전체 속성
+            var attrs = google.attributes;                          // 배열로 돌려준다
+            for(var i = 0; i < attrs.length; i++) {
+                console.log(attrs[i].name, attrs[i].value)
+            };
+
+            // 속성 삭제
+            google.removeAttribute('href');
+
+
+            // form 요소 중 type이 Input이고 티입이 text의 값만 뽑아서 객체로 생성
+            var obj = {};
+            var form = document.querySelector('form');
+            var submitBtn = document.querySelector('button[type="submit"]')
+
+            submitBtn.addEventListener('click', function(evt){
+                evt.preventDefault();
+
+                for(var i = 0; i < form.children.length; i++) {
+                    var elem = form.children[i];
+
+                    // nodeName은 항상 대문자로 비교해야 한다.
+                    if(elem.nodeName === 'INPUT' && elem.type === 'text') {
+                        var name = elem.getAttribute('name');
+                        obj[name] = elem.value;
+                    }
+                }
+
+                console.log(obj);
+
+                // JavaScript 객체 그대로 전달
+                // document.querySelector('#result').innerHTML = obj;
+
+                // JSON 형식으로 변환
+                // JavaScript Data => JSON 형식으로 변경        JSON.stringify(자바스크립트 오브젝트);
+                // JSON 형식 => JavaScript Data               JSON.parse(자바스크립트 오브젝트);
+                var jsonData = JSON.stringify(obj);
+                document.querySelector('#result').innerHTML = jsonData;
+            });
         };
         
         window.addEventListener('load', onLoadEvent);
@@ -28,6 +75,7 @@
             Password: <input type="password" class="form-control" name="pw">
             <button type="submit">SEND</button>
         </form>
+
         <div id="result"></div>
     </div>
 </body>

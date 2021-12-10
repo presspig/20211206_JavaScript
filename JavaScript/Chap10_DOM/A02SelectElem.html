@@ -10,13 +10,25 @@
 		window.onload = function() {
 			// 요소를 선택하는 다양한 방법
 
-            var titleElem = document.getElementById('title');           // #은 없이 이름만 기술
+            // var titleElem = document.getElementById('title');           // #은 없이 이름만 기술
             // var btns = document.getElementsByTagName('button');         // s가 붙은 명령은 배열로 돌려준다
             // var btns = document.getElementsByClassName('btn');          // .은 생략
             // var btns = document.getElementsByName('abc');
 
-            
-            console.log(btns)
+            // querySelector, querySelectorAll는 모두 CSS 선택 방식을 따른다.
+            var btns = document.querySelectorAll('button');
+            console.log(btns);
+
+            var btn = document.querySelector('button');         // 처음 찾은 요소
+            console.log(btn);
+
+            // id
+            var titleElem = document.querySelector('#title');   // # 필요
+            var clz = document.querySelector('.abc');           // 처음 1개
+            var clzs = document.querySelectorAll('.abc');       // 전체
+
+            var li = document.querySelectorAll('ul li');
+            console.log(li)
 		}
 
         // window.addEventListener('click', funcName);
