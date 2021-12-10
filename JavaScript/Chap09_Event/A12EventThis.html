@@ -14,7 +14,51 @@
                 {name: 'HungBu', kor: 90, eng: 90},
                 {name: 'BangJa', kor: 80, eng: 90},
             ];
-            
+
+            function Jumsu(name, kor, eng) {
+                this.name = name;
+                this.kor = kor;
+                this.eng = eng;
+            }
+            Jumsu.prototype.onTotal = function(){
+                return this.kor + this.eng;
+            }
+
+            var students = [];
+            for(var i = 0; i < data.length; i++) {
+                var item = data[i];
+
+                students.push( new Jumsu(item.name, item.kor, item.eng) );
+            };
+            // console.log(students);
+
+            function onLoadEvent() {
+                document.querySelector('#btn1').addEventListener('click', function(evt){
+                    var div = document.createElement('div');
+                    div.append(students[0].name, ' / ', students[0].onTotal() );
+                    document.querySelector('#result').appendChild(div);
+                });
+
+                document.querySelector('#btn2').addEventListener('click', function(evt){
+                    changeColor(evt, 'orange')
+                });
+
+                function changeColor(evt, color) {
+                    console.log(color)
+                    evt.target.style.color = color;
+                };
+
+                document.querySelector('#btn3').addEventListener('click', changeBackground('orange'));
+
+                function changeBackground(color) {
+                    return function(evt) {
+                        evt.target.style.backgroundColor= color;
+                    }
+                }
+
+            };
+
+            window.myLib = onLoadEvent;
         })();
 
         window.addEventListener('load', myLib)
@@ -29,6 +73,8 @@
             <button id='btn2'>CLICK</button>
             <button id='btn3'>CLICK</button>
         </div>
+
+        <div id="result"></div>
     </div>
 </body>
 </html>

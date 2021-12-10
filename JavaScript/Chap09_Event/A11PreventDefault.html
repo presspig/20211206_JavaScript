@@ -20,6 +20,23 @@
                 if(!check) {
                     evt.preventDefault();
                 };
+            });
+
+            // form 전송을 막는다
+            document.querySelector('button[type="submit"]').addEventListener('click', function(evt){
+                evt.preventDefault();
+                var name = document.querySelector('.form-control').value;
+                console.log(name);
+            });
+
+            // 필드에 입력을 막는다. 한글은 된다.
+            document.querySelector('.form-control').addEventListener('keydown', function(evt){
+                evt.preventDefault();
+            });
+
+            // 브라우저의 우클릭 방지
+            document.addEventListener('contextmenu', function(evt){
+                evt.preventDefault();
             })
         });
     </script>
