@@ -9,6 +9,30 @@
     <script type="text/javascript">
         (function(){
             
+            function onLoadEvent() {
+                // querySelector => css 문법을 따라 노드 선택
+                var inputField = document.querySelector('input[name="name"]');
+                inputField.addEventListener('keyup', function(evt){
+                    console.log('code: ', evt.code);
+                    console.log('key: ', evt.key);
+                    console.log('keyCode: ', evt.keyCode);
+                    console.log('shift: ', evt.shiftKey);
+
+                    if(evt.keyCode === 13 && evt.shiftKey) {
+                        alert(evt.target.value);
+                    }
+                });
+
+                // 처음 매칭되는 노드
+                document.querySelector('button').addEventListener('click', function(evt) {
+                    // console.log(evt);
+                    if(evt.shiftKey) {
+                        location.assign('http://www.google.com');
+                    }
+                })
+            }
+
+            window.myLib = onLoadEvent;
         })();
 
         window.addEventListener('load', myLib);

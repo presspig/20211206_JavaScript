@@ -6,9 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A08 Event Properties</title>
+
     <script type="text/javascript">
-        
+        (function(that){
+            var boxX, boxY;
+
+            function onLoadEvent() {
+                var box = document.createElement("div");
+                box.append('JavaScript');
+
+                box.style.position = 'absolute';
+                box.style.left = '20px';
+                box.style.padding = '10px';
+                box.style.backgroundColor = 'lightgray';
+                box.style.cursor = 'pointer';
+
+                // offsetX, offsetY      box의 좌측부터 클릭한 위치까지의 거리값
+                box.addEventListener('mousedown', function(evt){
+                    boxX = evt.offsetX;
+                    boxY = evt.offsetY;
+
+                    document.addEventListener('mousemove', mouseMoveEvent)
+                });
+
+                document.addEventListener('mouseup', function(evt){
+                    console.log(evt)
+                    document.removeEventListener('mousemove', mouseMoveEvent)
+                })
+
+                function mouseMoveEvent(evt) {
+                    box.style.left = evt.pageX - boxX + 'px';
+                    box.style.top = evt.pageY - boxY + 'px';
+                }
+
+                document.body.appendChild(box);
+            }
+
+            // console.log(this)
+            that.myLib = onLoadEvent;
+        })(window);
+
+        window.addEventListener('load', myLib);
     </script>
+
 </head>
 <body>
     <div class="card-body">
